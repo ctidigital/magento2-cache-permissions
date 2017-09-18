@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package   CtiDigital\AdvancedAclPermissions
+ * @author    Bartosz Herba <b.herba@ctidigital.com>
+ * @copyright 2017 CtiDigital
+ * @license See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::system">
+                    <resource id="Magento_Backend::tools">
+                        <resource id="Magento_Backend::cache">
+                            <resource id="CtiDigital_AdvancedAclPermissions::main_actions" title="Clean Cache Actions" translate="title" sortOrder="10">
+                                <resource id="CtiDigital_AdvancedAclPermissions::flush_cache_storage" title="Flush Cache Storage" translate="title" sortOrder="10" />
+                                <resource id="CtiDigital_AdvancedAclPermissions::flush_magento_cache" title="Flush Magento Cache" translate="title" sortOrder="20" />
+                            </resource>
+                            <resource id="CtiDigital_AdvancedAclPermissions::mass_actions" title="Cache Types Management" translate="title" sortOrder="20">
+                                <resource id="CtiDigital_AdvancedAclPermissions::toggling_cache_type" title="Toggle Cache Type" translate="title" sortOrder="10" />
+                                <resource id="CtiDigital_AdvancedAclPermissions::refresh_cache_type" title="Refresh Cache Type" translate="title" sortOrder="20" />
+                            </resource>
+                            <resource id="CtiDigital_AdvancedAclPermissions::additional_cache_management" title="Additional Cache Management" translate="title" sortOrder="30">
+                                <resource id="CtiDigital_AdvancedAclPermissions::flush_catalog_images" title="Catalog Images Cache" translate="title" sortOrder="10" />
+                                <resource id="CtiDigital_AdvancedAclPermissions::flush_js_css" title="Flush Js/Css" translate="title" sortOrder="20" />
+                                <resource id="CtiDigital_AdvancedAclPermissions::flush_static_files" title="Flush Static Files" translate="title" sortOrder="30" />
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

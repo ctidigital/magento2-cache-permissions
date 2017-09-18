@@ -1,0 +1,39 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \CtiDigital\AdvancedAclPermissions\Block\Cache\Additional $block
+ */
+?>
+<?php if ($block->hasAccessToAdditionalActions()): ?>
+    <div class="additional-cache-management">
+        <?php if ($block->hasAccessToFlushCatalogImages()): ?>
+            <h2>
+                <span><?php echo __('Additional Cache Management') ?></span>
+            </h2>
+            <p>
+                <button onclick="setLocation('<?php echo $block->getCleanImagesUrl() ?>')" type="button">
+                    <?php echo __('Flush Catalog Images Cache') ?>
+                </button>
+                <span><?php echo __('Pregenerated product images files') ?></span>
+            </p>
+        <?php endif; ?>
+        <?php if ($block->hasAccessToFlushJsCss()): ?>
+            <p>
+                <button onclick="setLocation('<?php echo $block->getCleanMediaUrl() ?>')" type="button">
+                    <?php echo __('Flush JavaScript/CSS Cache') ?>
+                </button>
+                <span><?php echo __('Themes JavaScript and CSS files combined to one file') ?></span>
+            </p>
+        <?php endif; ?>
+        <?php if (!$block->isInProductionMode() && $block->hasAccessToFlushStaticFiles()): ?>
+            <p>
+                <button onclick="setLocation('<?php echo $block->getCleanStaticFilesUrl() ?>')" type="button">
+                    <?php echo __('Flush Static Files Cache') ?>
+                </button>
+                <span><?php echo __('Preprocessed view files and static files') ?></span>
+            </p>
+        <?php endif; ?>
+        <?php echo $block->getChildHtml(); ?>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package   CtiDigital\AdvancedAclPermissions
+ * @author    Bartosz Herba <b.herba@ctidigital.com>
+ * @copyright 2017 CtiDigital
+ * @license See LICENSE.txt for license details.
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="cache.additional">
+            <referenceContainer name="content">
+                <block class="CtiDigital\AdvancedAclPermissions\Block\Cache\Additional" name="cache.additional" template="CtiDigital_AdvancedAclPermissions::system/cache/additional.phtml"/>
+            </referenceContainer>
+        </referenceBlock>
+    </body>
+</page>
