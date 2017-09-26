@@ -1,8 +1,10 @@
 # Advanced Acl Permissions module for Magento 2
 
 ## Overview
-The Magento standard ACL defines access to 'Cache Management' the problem is that if this is enabled then the user has access to all cache flushing features. The module allow more granular ACL configuration for a better cache management.
 
+Magento's default access control rules mean that a user with access to the 'Cache Management' section can flush any cache. This can have very serious performance impacts on the website.
+
+This module adds more access control rules allowing you to control what certain users are able to do.
 ## Installation details
  
 Simply require module in your project using composer.
@@ -17,10 +19,8 @@ Configuration is available in admin panel for a given customer role System > All
 
 ![Configuration](./README/advanced_acl_options.png)
 
-* **Configuration**
-    * **Enabled** - enable/disable newsletter on checkout
-    * **Subscribe checkout label** - newsletter label visible on checkout
-   
+The module allows control of whether the user can view, flush, or toggle a cache as well as performing complete cache flushes.
+
 ### Overrides
 * Preference for Magento\Backend\Block\Cache
 
