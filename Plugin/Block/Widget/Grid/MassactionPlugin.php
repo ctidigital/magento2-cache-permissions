@@ -17,6 +17,8 @@ use Magento\Framework\DataObject;
  */
 class MassactionPlugin
 {
+    const CACHE_SECTION = 'admin/cache';
+
     /**
      * @var AuthorizationInterface
      */
@@ -42,6 +44,10 @@ class MassactionPlugin
      */
     public function aroundAddItem(Massaction $subject, callable $proceed, $itemId, $item)
     {
+        if ($this->getCurrentPage($subject) !== self::CACHE_SECTION) {
+            return $proceed($itemId, $item);
+        }
+
         if ($this->isTogglingMenuItem($itemId) && $this->hasAccessToToggleMassActions()) {
             return $proceed($itemId, $item);
         }
@@ -87,5 +93,11 @@ class MassactionPlugin
     private function hasAccessToRefreshMassAction()
     {
         return $this->authorization->isAllowed('CtiDigital_AdvancedAclPermissions::refresh_cache_type');
+    }
+
+    private function getCurrentPage($subject)
+    {
+        $request = $subject->getRequest();
+        return $request->getModuleName().DIRECTORY_SEPARATOR.$request->getControllerName();
     }
 }
